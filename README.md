@@ -1,75 +1,75 @@
-## Script Overview
+## Script Genel Bakış
 
-The script converts speech from audio file to text using the OpenAI API. It handles audio file splitting, sends parts to OpenAI for transcription, combines the text, and optionally creates summaries and timestamps. Supported file types include `mp3`, `mp4`, `mpeg`, `mpga`, `m4a`, `wav`, and `webm`.
+Bu script, bir ses dosyasındaki konuşmayı metne dönüştürmek için OpenAI API'sini kullanır. Ses dosyasını parçalara ayırır, bu parçaları OpenAI'ye gönderir, metinleri birleştirir ve isteğe bağlı olarak özetler ve zaman damgaları oluşturur. Desteklenen dosya türleri arasında `mp3`, `mp4`, `mpeg`, `mpga`, `m4a`, `wav` ve `webm` bulunmaktadır.
 
-### Step 1: Install Python and Libraries
+### Adım 1: Python ve Kütüphaneleri Yükleyin
 
-1. **Install Python**:
-   - **macOS**: Open Terminal and run:
+1. **Python Yükleyin**:
+   - **macOS**: Terminal'i açın ve şunu çalıştırın:
      ```sh
      brew install python
      ```
-   - **Windows**: Download and install from [Python website](https://www.python.org/downloads/windows/), check "Add Python to PATH".
+   - **Windows**: [Python web sitesinden](https://www.python.org/downloads/windows/) indirin ve yükleyin, "Add Python to PATH" seçeneğini işaretleyin.
 
-2. **Install Libraries**:
+2. **Kütüphaneleri Yükleyin**:
    ```sh
    pip install pydub openai
    ```
 
-### Step 2: Get an OpenAI API Key
+### Adım 2: OpenAI API Anahtarını Alın
 
-1. Sign up and log in at [OpenAI](https://platform.openai.com).
-2. Generate a new API key in your dashboard.
+1. [OpenAI](https://platform.openai.com) adresinde kaydolun ve giriş yapın.
+2. Kontrol panelinizde yeni bir API anahtarı oluşturun.
 
-### Step 3: Set API Key
+### Adım 3: API Anahtarını Ayarlayın
 
 **macOS:**
-1. Open Terminal.
-2. Edit your shell profile:
+1. Terminal'i açın.
+2. Shell profilinizi düzenleyin:
    ```sh
    nano ~/.bash_profile
    ```
-3. Add:
+3. Aşağıdakileri ekleyin:
    ```sh
    export OPENAI_API_KEY='your_openai_api_key'
    ```
-4. Save and apply changes:
+4. Değişiklikleri kaydedin ve uygulayın:
    ```sh
    source ~/.bash_profile
    ```
 
 **Windows:**
-1. Open Command Prompt.
-2. Run:
+1. Komut İstemi'ni açın.
+2. Şunu çalıştırın:
    ```cmd
    setx OPENAI_API_KEY "your_openai_api_key"
    ```
-3. Restart Command Prompt.
+3. Komut İstemi'ni yeniden başlatın.
 
-### Step 4: Run the Script
+### Adım 4: Script'i Çalıştırın
 
-1. Save the script as `transcribe.py`.
-2. Open Command Prompt or Terminal, navigate to the script directory.
-3. Run:
+1. Script'i `transcribe.py` olarak kaydedin.
+2. Komut İstemi veya Terminal'i açın, script dizinine gidin.
+3. Şunu çalıştırın:
    ```sh
    python transcribe.py path_to_your_audio_file
    ```
-   For Python 3, use:
+   Python 3 için:
    ```sh
    python3 transcribe.py path_to_your_audio_file
    ```
 
-Example:
+Örnek:
 ```sh
 python transcribe.py audio.m4a
 ```
 
-### Optional Parameters
+### İsteğe Bağlı Parametreler
 
-- `--sum`: Create a summary.
-- `--time`: Include timestamps.
+- `--sum`: Özet oluştur.
+- `--time`: Zaman damgalarını dahil et.
 
-Example:
+Örnek:
 ```sh
 python transcribe.py audio.m4a --sum --time
 ```
